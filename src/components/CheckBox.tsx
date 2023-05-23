@@ -23,10 +23,10 @@ const CustomCheckbox = styled.input.attrs({ type: 'checkbox' })`
 interface Props {
   setSelectedPrefectures: React.Dispatch<React.SetStateAction<number[]>>;
   selectedPrefectures: number[];
-  prefectures: Prefecture[];
+  pref: Prefecture;
 }
 
-const PrefectureCheck:React.FC<Props> = ({selectedPrefectures,prefectures,setSelectedPrefectures}) => {
+const CheckBox:React.FC<Props> = ({selectedPrefectures,pref,setSelectedPrefectures}) => {
 
     //都道府県のチェックボックスの選択状態が変更されたときに実行される関数
     const handleCheckboxChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -40,7 +40,7 @@ const PrefectureCheck:React.FC<Props> = ({selectedPrefectures,prefectures,setSel
 
   return (
     <>
-      {prefectures.map((pref) => (
+
         <div key={pref.prefCode}>
           <CustomLabel>
             <CustomCheckbox
@@ -52,9 +52,9 @@ const PrefectureCheck:React.FC<Props> = ({selectedPrefectures,prefectures,setSel
             {pref.prefName}
           </CustomLabel>
         </div>
-      ))}
+  
     </>
   )
 };
 
-export default PrefectureCheck;
+export default CheckBox;
