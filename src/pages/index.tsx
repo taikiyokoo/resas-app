@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { getChildPopulation, getElderlyPopulation, getPopulation, getPrefectures, getWorkingPopulation } from './api/resas';
+import {  getPrefectures} from './api/resas';
 import { Population, Prefecture } from '@/interfaces';
-import PrefectureCheck from '@/components/PrefectureCheck';
 import Graph from '@/components/Graph';
 import { fetchAllPopulationData } from '@/lib/fetchPopulation';
 import { GetStaticProps } from 'next';
+import CheckBox from '@/components/Checkbox';
 
 const Container = styled.div`
   display: flex;
@@ -36,7 +36,6 @@ const CheckboxContainer = styled.div`
     grid-template-columns: repeat(5, 1fr);
   }
 `;
-
 
 
 const Tab = styled.a`
@@ -81,15 +80,12 @@ export const getStaticProps: GetStaticProps = async () => {
   }
 };
 
-
 const IndexPage: React.FC<HomeProps> = ({prefectures}) => {
 
   const [selectedPrefectures, setSelectedPrefectures] = useState<number[]>([]); //選択された都道府県コードの一覧
   const [population, setPopulation] = useState<Population[]>([]); 
   const [loading,setLoading] = useState<boolean>(true); //ローディング状態管理
   const [selectedDisplayData,setSelectedDisplayData] = useState<number>(0); //表示するデータの配列 0:総人口、2:年少人口、3:生産年齢人口、4:老年人口
-
-    
 
   //選択された都道府県が変更されたときに実行
   useEffect(() => {
@@ -112,7 +108,6 @@ const IndexPage: React.FC<HomeProps> = ({prefectures}) => {
 
   }, [selectedPrefectures, selectedDisplayData]);
 
-
   return (
     <Container>
       <div>
@@ -124,14 +119,15 @@ const IndexPage: React.FC<HomeProps> = ({prefectures}) => {
         </Tabs>
         <MainContainer>
             <CheckboxContainer>
-              <PrefectureCheck prefectures={prefectures} selectedPrefectures={selectedPrefectures} setSelectedPrefectures={setSelectedPrefectures} />
+              {prefectures.map((pref) => (
+                  <CheckBox key={pref.prefCode} pref={pref} selectedPrefectures ={selectedPrefectures} setSelectedPrefectures ={setSelectedPrefectures}/>
+                ))}
             </CheckboxContainer>
             <Graph prefectures={prefectures} selectedPrefectures = {selectedPrefectures} selectedDisplayData={selectedDisplayData} population={population} loading={loading} />
         </MainContainer>
       </div>
     </Container>
   )
-
 }
 
 export default IndexPage;
