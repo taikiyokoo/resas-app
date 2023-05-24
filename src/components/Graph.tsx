@@ -7,10 +7,25 @@ import { getColor } from '@/utils/generateColor';
 
 const ChartContainer = styled.div`
 
-    @media (max-width: 600px) {
+    @media (max-width: 960px) {
         margin-top: 40px;
         margin-right: 60px;
+        margin-top: 20px;
+        }
     }
+`;
+const GraphTitle = styled.h1`
+
+    text-align: center;
+    font-size: 1em;
+    margin-left: 60px;
+    margin-bottom: 30px;
+    @media (max-width: 960px) {
+        font-size: 0.8em;
+        margin-left: 60px;
+        margin-bottom: 15px;
+        }
+    
 `;
 
 interface Props {
@@ -28,10 +43,10 @@ return (
     <div>
         {selectedPrefectures.length > 0 &&
             <ChartContainer data-testid="graph">
-                <h1 style={{textAlign: 'center',fontSize: '1em',marginLeft: '60px',marginBottom: '30px'}}>{loading? "データ取得中..." : title[selectedDisplayData]}</h1>
+                <GraphTitle>{loading? "データ取得中..." : title[selectedDisplayData]}</GraphTitle>
                 <LineChart
                     width={400}
-                    height={300}
+                    height={280}
                     margin={{
                     left: 60,
                     }}
