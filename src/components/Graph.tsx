@@ -27,7 +27,7 @@ const Graph:React.FC<Props> = ({selectedDisplayData,selectedPrefectures,prefectu
 return (
     <div>
         {selectedPrefectures.length > 0 &&
-            <ChartContainer>
+            <ChartContainer data-testid="graph">
                 <h1 style={{textAlign: 'center',fontSize: '1em',marginLeft: '60px',marginBottom: '30px'}}>{loading? "データ取得中..." : title[selectedDisplayData]}</h1>
                 <LineChart
                     width={400}
