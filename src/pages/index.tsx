@@ -5,7 +5,7 @@ import { Population, Prefecture } from '@/interfaces';
 import Graph from '@/components/Graph';
 import { fetchAllPopulationData } from '@/lib/fetchPopulation';
 import { GetStaticProps } from 'next';
-import CheckBox from '@/components/Checkbox';
+import CheckBox from '@/components/CheckBox';
 
 const Container = styled.div`
   display: flex;
