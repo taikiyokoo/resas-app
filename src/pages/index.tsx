@@ -12,8 +12,7 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   height: 100vh;
-
-  @media (max-width: 600px) {
+  @media (max-width: 960px) {
 
   }
 `;
@@ -23,17 +22,17 @@ const MainContainer = styled.div`
   justify-content: center;
   align-items: center;
 
-  @media (max-width: 600px) {
+  @media (max-width: 960px) {
     flex-direction: column;
   }
 `;
 
 const CheckboxContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   gap: 10px;
-  @media (max-width: 600px) {
-    grid-template-columns: repeat(5, 1fr);
+  @media (max-width: 960px) {
+    gap: 3px;
   }
 `;
 
@@ -46,7 +45,7 @@ const Tab = styled.a`
   &:hover {
     opacity: 1;
   }
-  @media (max-width: 600px) {
+  @media (max-width: 960px) {
     padding: 8px;
   }
 `;
@@ -60,7 +59,7 @@ const Tabs = styled.div`
   display: flex;
   justify-content: center;
   margin-bottom: 50px;
-  @media (max-width: 600px) {
+  @media (max-width: 960px) {
     margin-bottom: 20px;
   }
 `;

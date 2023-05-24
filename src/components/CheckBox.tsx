@@ -3,10 +3,13 @@ import React from "react";
 import styled from 'styled-components';
 
 const CustomLabel = styled.label`
-  font-size: 1.1em; 
+  font-size: 1em; 
 
-  @media (max-width: 600px) {
+  @media (max-width: 960px) {
     font-size: 0.8em; 
+  }
+  @media (max-width: 1280px) {
+    font-size: 0.9em; 
   }
 `;
 
@@ -14,10 +17,15 @@ const CustomCheckbox = styled.input.attrs({ type: 'checkbox' })`
   transform: scale(1.5);
   margin-right: 10px;
 
-  @media (max-width: 600px) {
+  @media (max-width: 960px) {
     margin-right: 7px;
     transform: scale(1.2);
   }
+  @media (max-width: 1280px) {
+    margin-right: 5px;
+    transform: scale(1.3);
+  }
+
 `;
 
 interface Props {
