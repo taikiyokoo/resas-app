@@ -72,6 +72,10 @@ interface HomeProps {
 export const getStaticProps: GetStaticProps = async () => {
   try {
     const prefectures:Prefecture = await getPrefectures();
+    if (!prefectures) {
+      console.error('getPrefectures returned undefined');
+      return { props: { prefectures: [] } };
+    }
     return { props: { prefectures } };
   } catch (error) {
     console.error(error);
