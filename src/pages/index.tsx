@@ -10,10 +10,26 @@ import CheckBox from '@/components/CheckBox';
 const Container = styled.div`
   display: flex;
   justify-content: center;
-  align-items: center;
   height: 100vh;
-  @media (max-width: 960px) {
+  max-width: 100vw;
+  overflow-x: hidden;
 
+`;
+const Title = styled.h1`
+  margin-top: 50px;
+  font-size: 20px;
+  text-align: center;
+  margin-bottom: 50px;
+  @media (max-width: 960px) {
+    margin-top: 30px;
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+  @media (max-width: 480px) {
+    margin-top: 10px;
+    font-size: 13px;
+    margin-bottom: 10px;
+  }
   }
 `;
 
@@ -21,7 +37,6 @@ const MainContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-
   @media (max-width: 960px) {
     flex-direction: column;
   }
@@ -32,7 +47,12 @@ const CheckboxContainer = styled.div`
   grid-template-columns: repeat(5, 1fr);
   gap: 10px;
   @media (max-width: 960px) {
+    grid-template-columns: repeat(6, 1fr);
     gap: 3px;
+  }
+  @media (max-width: 480px) {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2px;
   }
 `;
 
@@ -59,8 +79,14 @@ const Tabs = styled.div`
   display: flex;
   justify-content: center;
   margin-bottom: 50px;
+
   @media (max-width: 960px) {
+    margin-bottom: 30px;
+    font-size: 14px;
+  }
+  @media (max-width: 480px) {
     margin-bottom: 20px;
+    font-size: 12px;
   }
 `;
 
@@ -114,6 +140,7 @@ const IndexPage: React.FC<HomeProps> = ({prefectures}) => {
   return (
     <Container>
       <div>
+        <Title>都道府県人口推移グラフ</Title>
         <Tabs>
           {selectedDisplayData != 0? <Tab onClick={() => setSelectedDisplayData(0)}>総人口</Tab> : <ActiveTab>総人口</ActiveTab>}
           {selectedDisplayData != 1? <Tab onClick={() => setSelectedDisplayData(1)}>年少人口</Tab> : <ActiveTab>年少人口</ActiveTab>}
