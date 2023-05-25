@@ -6,26 +6,26 @@ const CustomLabel = styled.label`
   font-size: 1em; 
 
   @media (max-width: 960px) {
-    font-size: 0.8em; 
+    font-size: 0.7em; 
   }
-  @media (max-width: 1280px) {
-    font-size: 0.9em; 
+  @media (max-width: 480px) {
+    font-size: 0.5em; 
   }
 `;
 
 const CustomCheckbox = styled.input.attrs({ type: 'checkbox' })`
-  transform: scale(1.5);
-  margin-right: 10px;
+
+    margin-right: 7px;
+    transform: scale(1.3);
 
   @media (max-width: 960px) {
-    margin-right: 7px;
+    margin-right: 5px;
     transform: scale(1.2);
   }
-  @media (max-width: 1280px) {
-    margin-right: 5px;
-    transform: scale(1.3);
+  @media (max-width: 480px) {
+    margin-right: 3px;
+    transform: scale(1.1);
   }
-
 `;
 
 interface Props {
