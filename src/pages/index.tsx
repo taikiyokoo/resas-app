@@ -4,7 +4,7 @@ import {  getPrefectures} from './api/resas';
 import { Population, Prefecture } from '@/interfaces';
 import Graph from '@/components/Graph';
 import { fetchAllPopulationData } from '@/lib/fetchPopulation';
-import { GetStaticProps } from 'next';
+import { GetServerSideProps} from 'next';
 import CheckBox from '@/components/CheckBox';
 
 const Container = styled.div`
@@ -95,9 +95,9 @@ interface HomeProps {
 }
 
 //都道府県の一覧を取得
-export const getStaticProps: GetStaticProps = async () => {
+export const getServerSideProps: GetServerSideProps = async () => {
   try {
-    const prefectures:Prefecture = await getPrefectures();
+    const prefectures: Prefecture = await getPrefectures();
     if (!prefectures) {
       console.error('getPrefectures returned undefined');
       return { props: { prefectures: [] } };
